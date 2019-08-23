@@ -27,10 +27,9 @@ const FormikLoginForm = withFormik({
       .post('http://localhost:5000/api/login', values)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
+        props.history.push("/bubbles");
       })
       .catch(err => console.log(err.response));
-      console.log(props.history)
-      props.history.push("/bubbles");
   }
 })(LoginForm);
 
